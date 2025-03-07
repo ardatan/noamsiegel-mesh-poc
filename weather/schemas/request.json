@@ -1,7 +1,13 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
-    "required": ["checkInDate", "checkOutDate"],
+    "required": [
+        "checkInDate",
+        "checkOutDate",
+        "latitude",
+        "longitude",
+        "unit"
+    ],
     "properties": {
         "checkInDate": {
             "type": "string",
@@ -21,12 +27,11 @@
         },
         "unit": {
             "type": "string",
-            "enum": ["metric", "imperial"],
+            "enum": [
+                "metric",
+                "imperial"
+            ],
             "description": "Unit system for measurements"
-        },
-        "timezone": {
-            "type": "string",
-            "description": "Timezone for the weather data"
         }
     }
-} 
+}
