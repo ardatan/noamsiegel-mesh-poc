@@ -20,11 +20,30 @@ export const composeConfig = defineConfig({
                         path: '/searchcomplete',
                         method: 'POST',
                         requestTypeName: 'CoordinatesHotelSearchRequest',
-                        requestSchema: './travelport/models/coordinates/request_schema.json',
+                        requestSchema: './travelport/models/coordinates/request.json',
                         responseSchema: './travelport/models/coordinates/response_schema.json',
                     }
                 ],
             }),
         },
+        {
+            sourceHandler: loadJSONSchemaSubgraph('Weather',{
+                endpoint: 'https://api.open-meteo.com/v1/forecast',
+                operationHeaders: {
+                    'Content-Type': 'application/json',
+                },
+                operations: [
+                    {
+                        type: 'Query',
+                        field: 'getWeather',
+                        path: '/',
+                        method: 'GET',
+                        requestTypeName: 'getWeather',
+                        requestSchema: './weather/schemas/request.json',
+                        responseSchema: './weather/schemas/response.json',
+                    }
+                ],
+            }),
+        }
     ]
 })
