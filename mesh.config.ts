@@ -16,7 +16,7 @@ export const composeConfig = defineConfig({
                 operations: [
                     {
                         type: 'Query',
-                        field: 'searchHotels',
+                        field: 'searchHotelsByCoordinates',
                         path: '/searchcomplete',
                         method: 'POST',
                         requestTypeName: 'CoordinatesHotelSearchRequest',
